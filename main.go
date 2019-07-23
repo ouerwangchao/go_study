@@ -9,18 +9,33 @@ import (
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
+	"io"
 	"net/http"
+	"os"
 	"time"
 )
 
 func main() {
+	// 禁用控制台颜色
+	gin.DisableConsoleColor()
+	// 创建记录日志的文件
+	f, _ := os.Create("app/storage/log/gin.log")
+	gin.DefaultWriter = io.MultiWriter(f)
+
 	//初始化配置
 	config.Init()
 	//初始化数据库链接
 	database.Init()
 	//静态文件
-	//初始化gin
-	r := gin.Default()
+	////初始化gin
+	//r := gin.Default()
+	//创建无中间件路由
+	r := gin.New()
+	// 使用 Logger 中间件
+	r.Use(gin.Logger())
+
+	// 使用 Recovery 中间件
+	r.Use(gin.Recovery())
 
 	//session相关
 	store := cookie.NewStore([]byte("secret"))

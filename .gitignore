@@ -4,3 +4,4 @@ app/public/bower_components/inputmask/dist/min/inputmask/dependencyLibs/
 app/public/bower_components/inputmask/dist/min/inputmask/global/
 app/public/bower_components/inputmask/dist/min/inputmask/phone-codes/
 app/public/js/
+app/storage/
