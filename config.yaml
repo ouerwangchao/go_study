@@ -1,0 +1,65 @@
+app:
+  env: dev
+  name: admin_like_php
+  des: ouer-go-atudy
+  port: 7777
+  logpath: /tmp/log/admin.log
+
+cors:
+  domains:
+    - http://localhost:9528
+  # seconds
+  max_age: 5
+
+mysql:
+  master:
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    password:
+    db: ebao
+    charset: utf8mb4
+    max_idle_conns: 2
+    max_open_conns: 5
+    log_mode: true
+    ## minutes
+    conn_max_lifetime: 60
+
+
+  slave:
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    password:
+    db: ebao
+    charset: utf8mb4
+    max_idle_conns: 2
+    max_open_conns: 5
+    log_mode: false
+    ## minutes
+    conn_max_lifetime: 60
+
+
+admin:
+  db:
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    password:
+    db: ebao
+    charset: utf8mb4
+    max_idle_conns: 2
+    max_open_conns: 5
+    log_mode: false
+    ## minutes
+    conn_max_lifetime: 60
+grpc:
+  servers:
+    dev:
+      order:
+        ip: 121.40.175.176:9134
+    prod:
+      order:
+        ip: 47.96.223.27:9134
+youth:
+  host: http://127.0.0.1:8088

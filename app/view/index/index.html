@@ -1,0 +1,106 @@
+{{ define "index/index.html" }}
+    {{template "head.html" .}}
+    <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        {{template "header.html" .}}
+        {{template "menu.html" .}}
+        <div class="content-wrapper" id="content">
+            <section class="content-header">
+                <h1>
+                    <small>日常数据展示</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i> 首页</li>
+                    <li class="active">日常数据展示</li>
+                </ol>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-lg-2 col-xs-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>充值订单数</p>
+                            </div>
+                            <a href="recharge_order_charts" class="small-box-footer">查看更多<i
+                                        class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>充值金额</p>
+                            </div>
+                            <a href="recharge_price_charts" class="small-box-footer">查看更多<i
+                                        class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-6">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>充值手续费</p>
+                            </div>
+                            <a href="recharge_ratio_charts" class="small-box-footer">查看更多<i
+                                        class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>提现订单数</p>
+                            </div>
+                            <a href="#" class="small-box-footer">查看更多<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>提现金额</p>
+                            </div>
+                            <a href="#" class="small-box-footer">查看更多<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-6">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h4>￥</h4>
+                                <p>提现手续费</p>
+                            </div>
+                            <a href="#" class="small-box-footer">查看更多<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <body>
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            </body>
+        </div>
+{{/*        @include('layout.footer')*/}}
+        {{template "footer.html" .}}
+    </div>
+
+    <!-- jQuery 3 -->
+    <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/static/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+{{/*    <script src="echarts/dist/echarts.js"></script>*/}}
+
+
+    <!-- jQuery 2.2.3 -->
+    <script src="/static/bower_components/admin-lte/plugins/jQueryUI/jquery-ui.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    </body>
+    </html>
+
+{{end}}
