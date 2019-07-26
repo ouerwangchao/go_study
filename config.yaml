@@ -2,7 +2,7 @@ app:
   env: dev
   name: admin_like_php
   des: ouer-go-atudy
-  port: 7788
+  port: 9999
   logpath: /tmp/log/admin.log
 
 cors:
@@ -17,7 +17,7 @@ mysql:
     port: 3306
     user: root
     password:
-    db: ebao
+    db: go_study
     charset: utf8mb4
     max_idle_conns: 2
     max_open_conns: 5
@@ -63,3 +63,7 @@ grpc:
         ip: 47.96.223.27:9134
 youth:
   host: http://127.0.0.1:8088
+
+enums:
+  admin:
+    session_user_info: user_info

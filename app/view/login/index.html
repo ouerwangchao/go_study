@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>小熊券购</title>
+        <title>后台管理系统</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -29,17 +29,16 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    <body class="hold-transition login-page" style="background: url(./app/public/img/loginbg.jpg) no-repeat;background-size: cover;">
+    <body class="hold-transition login-page"
+          style="background: url(/static/img/loginbg.jpg) no-repeat;background-size: cover;">
     <div class="login-box">
         <div class="login-logo">
-            <b>小熊券购</b>
+            <b>后台管理系统</b>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">登录</p>
-
             <div class="form-group has-feedback">
-
                 <div class="form-group col-md-12">
                     <label class="control-label" for="inputError" id="error_name" style="display: none"><font
                                 style="color: red">请正确填写手机号</font></label>
@@ -49,14 +48,10 @@
             <div class="form-group has-feedback">
                 <div class="form-group col-md-12">
                     <label class="control-label" for="inputError" id="error_pwd" style="display: none"><font
-                                style="color: red">请正确填写验证码</font></label>
-                    <input type="text" class="form-control" id="search_yzm"
-                           placeholder="验证码" name="search_yzm"
+                                style="color: red">请正确填写密码</font></label>
+                    <input type="text" class="form-control" id="search_yzm" placeholder="密码" name="search_yzm"
                            value="">
                 </div>
-{{/*                <div class="form-group col-md-5">*/}}
-{{/*                    <button type="button" id="yzm_btn" class="btn btn-default btn-block">获取验证码</button>*/}}
-{{/*                </div>*/}}
             </div>
             <div class="form-group has-feedback">
                 <div class="form-group col-md-7">
@@ -65,7 +60,9 @@
                     <button type="button" class="btn btn-primary btn-block">登录</button>
                 </div>
             </div>
-
+            <div class="row">
+            </div>
+            <!-- /.social-auth-links -->
         </div>
         <!-- /.login-box-body -->
     </div>
@@ -111,7 +108,7 @@
                 },
                 success: function (data) {
                     if (data.res != true) {
-                        alert(data.msg);
+                        alert(data.data);
                     } else {
                         window.location.href = 'index';
                     }
@@ -124,51 +121,6 @@
         function hide_label() {
             $("#error_name").hide();
             $("#error_pwd").hide();
-        }
-    </script>
-
-    <script type="text/javascript">
-        window.onload = function () {
-//        var button = document.getElementsByTagName("button")[0];
-
-            var button = document.getElementById('yzm_btn');
-            button.innerText = "获取验证码";
-            var timer = null;
-            button.onclick = function () {
-                clearInterval(timer);//这句话至关重要
-                var time = 60;
-                var that = this;
-                timer = setInterval(function () {
-                    console.log(time);
-                    if (time <= 0) {
-                        that.innerText = "";
-                        that.innerText = "重新发送";
-                        that.disabled = false;
-
-                    } else {
-                        that.disabled = true;
-                        that.innerText = "";
-                        that.innerText = "剩余" + (time) + "秒";
-                        time--;
-                    }
-                }, 1000);
-                var phone = $.trim($("#username").val());
-                $.ajax({
-                    type: 'POST',
-                    url: "yzm",
-                    dataType: 'json',
-                    data: {
-                        'phone': phone,
-                    },
-                    success: function (data) {
-                        if (data.code != 1) {
-                            alert('success');
-                        } else {
-                        }
-                    }
-                });
-
-            }
         }
     </script>
 {{end}}
