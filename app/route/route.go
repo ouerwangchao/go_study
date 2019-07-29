@@ -31,5 +31,6 @@ func SetupRouter(r *gin.Engine) {
 	h.Use(middleware.CheckLogin)
 	{
 		h.GET("/index", controller.Index) //后台首页
+		h.GET("/userinfo", controller.Users)
 	}
 }

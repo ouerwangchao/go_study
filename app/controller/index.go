@@ -3,7 +3,6 @@ package controller
 import (
 	service "code_jzggxx.com/ouer/admin/app/services"
 	"encoding/json"
-	"fmt"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
@@ -31,7 +30,6 @@ func Index(c *gin.Context) {
 
 	//获取导航菜单栏数据
 	menu := service.GetAdminMenu()
-	fmt.Println(menu)
 	c.HTML(http.StatusOK, "index/index.html", gin.H{
 		"name":      users.Name,
 		"nick_name": nickName,
