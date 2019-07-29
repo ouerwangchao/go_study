@@ -40,7 +40,7 @@ func LoginAction(c *gin.Context) {
 	var AdminUsers []AdminUser
 	Phone := c.PostForm("phone")
 	PassWord := md5V(c.PostForm("password"))
-	//查询admin_users表查询用户
+	//查询admin_user表查询用户
 	database.MasterDB.Table("admin_user").Where("phone = ? AND password = ?", Phone, PassWord).Find(&AdminUsers)
 	fmt.Println(AdminUsers)
 	if len(AdminUsers) == 0 {
