@@ -36,10 +36,11 @@ func SetupRouter(r *gin.Engine) {
 	{
 		h.GET("/index", controller.Index) //后台首页
 		h.GET("/userinfo", controller.Users)
+		h.POST("/edit_user", controller.EditUser) //新增后台用户
 	}
 
 	//go并发测试
 	t := r.Group("/test")
-	t.POST("/bing", controller.Test) //并发测试
+	t.POST("/bing", controller.Test)     //并发测试
 	t.POST("/normal", controller.Normal) //普通测试
 }
