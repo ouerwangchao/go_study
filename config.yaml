@@ -2,7 +2,7 @@ app:
   env: dev
   name: admin_like_php
   des: ouer-go-atudy
-  port: 9999
+  port: 8888
   logpath: /tmp/log/admin.log
 
 cors:

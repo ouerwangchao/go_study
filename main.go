@@ -24,7 +24,6 @@ func main() {
 	// 如果需要将日志同时写入文件和控制台，请使用以下代码
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
-
 	//初始化配置
 	config.Init()
 	//初始化数据库链接
@@ -48,6 +47,7 @@ func main() {
 	r.Static("app/public", "./app/public")
 	r.StaticFS("/static", http.Dir("./app/public"))
 	r.StaticFile("/favicon.ico", "favicon.ico")
+	//路由
 	route.SetupRouter(r)
 	ser := &http.Server{
 		Addr:         ":" + viper.GetString("app.port"),

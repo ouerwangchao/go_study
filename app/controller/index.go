@@ -3,6 +3,7 @@ package controller
 import (
 	service "code_jzggxx.com/ouer/admin/app/services"
 	"encoding/json"
+	"fmt"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
@@ -28,6 +29,7 @@ func Index(c *gin.Context) {
 	nickName := gojsonq.New().JSONString(userInfo.(string)).Find("nick_name") //取参数方式一
 	nickName = users.NickName                                                 //取参数方式二
 
+	fmt.Println(users)
 	//获取导航菜单栏数据
 	menu := service.GetAdminMenu()
 	c.HTML(http.StatusOK, "index/index.html", gin.H{

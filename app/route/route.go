@@ -21,8 +21,12 @@ func SetupRouter(r *gin.Engine) {
 			"msg":  "api路由",
 		})
 	})
+	a.GET("/double", controller.Double)
+	a.GET("/channel", controller.Chan)
+
 	//layout
 	//r.HTMLRender = createMyRender()
+
 	//Home相关路由
 	h := r.Group("/home")
 	h.GET("/login", controller.Login)               //登录页面
@@ -33,4 +37,9 @@ func SetupRouter(r *gin.Engine) {
 		h.GET("/index", controller.Index) //后台首页
 		h.GET("/userinfo", controller.Users)
 	}
+
+	//go并发测试
+	t := r.Group("/test")
+	t.POST("/bing", controller.Test) //并发测试
+	t.POST("/normal", controller.Normal) //普通测试
 }
