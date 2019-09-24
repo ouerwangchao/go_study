@@ -3,6 +3,8 @@ package services
 import (
 	"code_jzggxx.com/ouer/admin/app/database"
 	"code_jzggxx.com/ouer/admin/app/model"
+	"fmt"
+	"strconv"
 )
 
 type Child struct {
@@ -55,4 +57,36 @@ func GetAdminMenu() []Menu {
 		AdminMenus = append(AdminMenus, adminMenu)
 	}
 	return AdminMenus
+}
+
+/**
+分页方法
+*/
+func Pagination(count int, pageNum int, nowPage int, url string) string {
+	var str string
+	if count == 0 {
+		str = ""
+		return str
+	}
+	//计算总页数
+	var totalPage = (count / pageNum) + 1
+	fmt.Println("totalpage is " + strconv.Itoa(totalPage))
+	if totalPage == 1 {
+		str = ""
+		return str
+	}
+	var arrNum = totalPage
+	var returnString string
+	returnString = "<ul class='pagination pagination-sm inline'><li><a href='" + url + "'>上一页</a></li>"
+	for i := 1; i <= arrNum; i++ {
+		var child = ""
+		if nowPage == i {
+			child = "<li><a href='" + url + "'>" + strconv.Itoa(i) + "</a></li>"
+		} else {
+			child = "<li><a href='" + url + "'>" + strconv.Itoa(i) + "</a></li>"
+		}
+		returnString = returnString + child
+	}
+	returnString = returnString + "<li><a href='" + url + "'>下一页</a></li></ul>"
+	return returnString
 }

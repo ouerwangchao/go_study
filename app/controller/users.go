@@ -5,6 +5,7 @@ import (
 	"code_jzggxx.com/ouer/admin/app/services"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"net/http"
 )
 
@@ -31,10 +32,12 @@ func Users(c *gin.Context) {
 		Users = append(Users, userArr)
 	}
 	menu := services.GetAdminMenu()
-	fmt.Println(menu);
+	fmt.Println(menu)
+	page := services.Pagination(len(Users), 2, 1, "index")
 	c.HTML(http.StatusOK, "users/index.html", gin.H{
 		"data": Users,
 		"menu": menu,
+		"page": template.HTML(page),
 	})
 }
 
